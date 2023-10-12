@@ -52,7 +52,6 @@
     <div class="container is-max-widescreen">
         <div class="columns">
             <div class="column is-three-quarters">
-                <button class="button is-danger is-outlined is-medium is-fullwidth">Medium</button>
                 {%for post in posts%}
                 <div class="box my-2">
                     <div class="swiper-container">
@@ -61,30 +60,29 @@
                             <div class="swiper-slide swiper-zoom-container">
                                 <img src="{{url_for('post.static', filename='images/' + image.name)}}"
                                      class="swiper-lazy">
-                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"><!--HERE--></div>
                             </div>
                             {%endfor%}
                         </div>
-                        <div class="swiper-pagination"><!--HERE--></div>
-                        <div class="swiper-button-next"><!--HERE--></div>
-                        <div class="swiper-button-prev"><!--HERE--></div>
                     </div>
 
                     <button class="button m-2 {%if current_user not in post.user_liked%}
-                                                is-dark
-                                              {%else%}
-                                                is-danger
-                                              {%endif%} is-inverted"
-                            onclick="like_unlike({{post.id}}, this)"><i
-                            class="fas fa-heart fa-2x"></i></button>
-                    <p class="subtitle">{{post.caption}}</p>
+                            is-dark
+                            {%else%}
+                                is-danger
+                            {%endif%} is-inverted"
+                            onclick="like_unlike({{post.id}}, this)"
+                    >
+                        <i class="fas fa-heart fa-2x"></i>
+                    </button>
+                </div>
+
+                <div class="box my-2">
+                    Descrição: {{post.caption}}
                 </div>
                 {%endfor%}
+
             </div>
 
-            <div class="column is-one-quarter">
-                <button class="button is-warning is-outlined is-medium is-fullwidth">Medium</button>
-            </div>
         </div>
     </div>
 </section>
