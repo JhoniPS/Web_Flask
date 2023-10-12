@@ -2,58 +2,38 @@
 {%extends 'layout.html'%}
 
 {%block body%}
-<section class="hero is-fullheight is-justify-content-center">
-    <div class="columns is-justify-content-center is-align-items-center">
-        <div class="column is-one-quarter">
-            <img src="{{url_for('static', filename='images/signup/loginImage.jpeg')}}"
-                 alt=""
-                 class="is-4by5">
-        </div>
-
-        <div class="column is-one-quarter">
-            <div class="box p-6">
-                <h1 class="title has-text-centered">Login</h1>
-                <p class="subtitle has-text-centered">To InstaFlask!</p>
-                <form action="" method="POST">
-                    {{form.hidden_tag()}}
-                    <div class="field my-3">
-                        <p class="control has-icons-left has-icons-right">
-                            {{render_form(form.email, class_='input', placeholder="Email")}}
-                            <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
-                        </span>
-                            <span class="icon is-small is-right">
-                            <i class="fas fa-check"></i>
-                        </span>
-                        </p>
-                    </div>
-
-                    <div class="field my-3">
-                        <p class="control has-icons-left">
-                            {{render_form(form.password, class_='input', placeholder="Password")}}
-                            <span class="icon is-small is-left">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                        </p>
-                    </div>
-
-                    <div class="control my-3">
-                        {{render_form(form.submit, class_='button is-link is-fullwidth is-medium')}}
-                    </div>
-                </form>
+<div class="h-screen font-sans login bg-cover">
+<div class="container mx-auto h-full flex flex-1 justify-center items-center">
+    <div class="w-full max-w-lg">
+      <div class="leading-loose">
+        <form class="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl" method="POST" action="">
+            <p class="text-white font-medium text-center text-lg font-bold">LOGIN</p>
+            {{form.hidden_tag()}}
+            <div class="">
+                <label class="block text-sm text-white">E-mail</label>
+                {{render_form(form.email, class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+                ,type="email", id="email", placeholder=" Digite o Email")}}
+            </div>
+            <div class="mt-2">
+                <label class="block  text-sm text-white">Senha</label>
+                {{render_form(form.password, class_="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white"
+                ,type="password", id="password", placeholder="Digite a senha")}}
             </div>
 
-            <div class="box my-2">
-                <p class="is-size-6 has-text-centered">Don't have an account? <a href="{{url_for('user.signup')}}">Sign
-                    Up!</a></p>
-            </div>
+            <div class="mt-4 items-center flex justify-between">
+                {{render_form(form.submit, class_="px-4 py-1 text-white font-light tracking-wider bg-gray-900 hover:bg-gray-800 rounded", type='submit')}}
 
-            <div class="box my-2">
-                <p class="is-size-6 has-text-centered">Did you forget your password? <br>
-                    <a href="{{url_for('user.reset')}}" class="has-text-danger">Reset Password</a>
-                </p>
+                <a class="inline-block right-0 align-baseline font-bold text-sm text-500 text-white hover:text-red-400"
+                  href="{{url_for('user.reset')}}">Esqueceu a senha ?</a>
             </div>
-        </div>
+            <div class="text-center">
+                <a class="inline-block right-0 align-baseline font-light text-sm text-500 hover:text-red-400" href="{{url_for('user.signup')}}">
+                    Criar uma conta
+                </a>
+            </div>
+        </form>
+      </div>
     </div>
-</section>
+  </div>
+</div>
 {%endblock body%}

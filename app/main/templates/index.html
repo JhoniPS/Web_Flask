@@ -15,7 +15,7 @@
                 <div class="level-left">
                     <div class="level-item mr-6">
                         <a href="{{url_for('main.home')}}">
-                            <h1 class="title">InstaFlask</h1>
+                            <h1 class="title">Fotogram</h1>
                         </a>
                     </div>
                     <div class="level-item ml-6">
@@ -34,11 +34,15 @@
 
                 <div class="level-right">
                     <a href="{{url_for('main.home')}}" class="mx-2">
-                        <p class="level-item"><i class="fas fa-home has-text-link"></i></p>
+                        <button class="h-10 px-5 font-semibold rounded-md bg-blue-500 hover:bg-blue-700 text-white" type="submit">
+                            Home
+                        </button>
                     </a>
 
                     <a href="{{url_for('post.new')}}" class="mx-2">
-                        <p class="level-item"><i class="fas fa-plus-circle"></i></p>
+                        <button class="h-10 px-5 text-white font-semibold rounded-md border bg-green-500 hover:bg-green-700 border-slate-200 text-slate-900" type="button">
+                            Novo Post
+                        </button>
                     </a>
                 </div>
             </nav>
