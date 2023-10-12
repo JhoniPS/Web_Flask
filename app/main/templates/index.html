@@ -33,9 +33,9 @@
                 </div>
 
                 <div class="level-right">
-                    <a href="{{url_for('main.home')}}" class="mx-2">
-                        <button class="h-10 px-5 font-semibold rounded-md bg-blue-500 hover:bg-blue-700 text-white" type="submit">
-                            Home
+                    <a href="{{url_for('user.logout')}}" class="mx-2">
+                        <button class="h-10 px-5 font-semibold rounded-md bg-red-500 hover:bg-red-700 text-white" type="submit">
+                            Logout
                         </button>
                     </a>
 
@@ -64,16 +64,6 @@
                             {%endfor%}
                         </div>
                     </div>
-
-                    <button class="button m-2 {%if current_user not in post.user_liked%}
-                            is-dark
-                            {%else%}
-                                is-danger
-                            {%endif%} is-inverted"
-                            onclick="like_unlike({{post.id}}, this)"
-                    >
-                        <i class="fas fa-heart fa-2x"></i>
-                    </button>
                 </div>
 
                 <div class="box my-2">
